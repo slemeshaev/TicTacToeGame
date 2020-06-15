@@ -1,24 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="TicTacToeGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="51x-Es-1CR">
+                                <rect key="frame" x="40" y="40" width="295" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1-й игрок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1V7-iM-l2S">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2-й игрок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJK-PZ-Wbv">
+                                        <rect key="frame" x="215" y="0.0" width="80" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пебедил 1-й игрок!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-pE-aPd">
+                                <rect key="frame" x="94" y="90.5" width="187" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yz-L6-kwX">
+                                <rect key="frame" x="0.0" y="139" width="375" height="470"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1S-R6-PEW">
+                                        <rect key="frame" x="16" y="63.5" width="343" height="343"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="y1S-R6-PEW" secondAttribute="height" id="leZ-Bx-lgn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Yz-L6-kwX" secondAttribute="height" multiplier="75:94" id="JA4-R7-diZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="y1S-R6-PEW" secondAttribute="trailing" constant="16" id="Vs4-cL-Jhl"/>
+                                    <constraint firstItem="y1S-R6-PEW" firstAttribute="centerY" secondItem="0Yz-L6-kwX" secondAttribute="centerY" id="qSQ-7U-f6e"/>
+                                    <constraint firstItem="y1S-R6-PEW" firstAttribute="leading" secondItem="0Yz-L6-kwX" secondAttribute="leading" constant="16" id="tsE-Rl-OcC"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pO-6G-KnK">
+                                <rect key="frame" x="128" y="614" width="119" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <state key="normal" title="Играть заново"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0Yz-L6-kwX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0j2-Ti-1fg"/>
+                            <constraint firstItem="9pO-6G-KnK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4fG-Sm-Q8z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="aX1-pE-aPd" secondAttribute="bottom" constant="-111" id="HlG-VH-Ifz"/>
+                            <constraint firstItem="0Yz-L6-kwX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="139" id="Loq-zb-QG1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9pO-6G-KnK" secondAttribute="bottom" constant="20" id="OI8-dU-7wz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aX1-pE-aPd" secondAttribute="trailing" constant="15" id="P7d-I3-h2L"/>
+                            <constraint firstItem="0Yz-L6-kwX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bi6-0J-kIx"/>
+                            <constraint firstItem="51x-Es-1CR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="bnm-JI-Ybm"/>
+                            <constraint firstItem="aX1-pE-aPd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="fcz-Jy-5nL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Yz-L6-kwX" secondAttribute="bottom" constant="58" id="fnv-nc-vYn"/>
+                            <constraint firstItem="aX1-pE-aPd" firstAttribute="top" secondItem="51x-Es-1CR" secondAttribute="bottom" constant="30" id="ivR-yd-X4o"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="51x-Es-1CR" secondAttribute="trailing" constant="40" id="n2Z-i6-hnf"/>
+                            <constraint firstItem="aX1-pE-aPd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="olZ-VB-gUE"/>
+                            <constraint firstItem="51x-Es-1CR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pFO-Jk-oQ5"/>
+                            <constraint firstItem="51x-Es-1CR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="t6o-mV-RGp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="96.7016491754123"/>
         </scene>
     </scenes>
 </document>
