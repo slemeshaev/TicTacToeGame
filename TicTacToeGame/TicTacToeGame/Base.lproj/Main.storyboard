@@ -41,7 +41,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yz-L6-kwX">
                                 <rect key="frame" x="0.0" y="139" width="375" height="470"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1S-R6-PEW">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1S-R6-PEW" customClass="GameboardView" customModule="TicTacToeGame" customModuleProvider="target">
                                         <rect key="frame" x="16" y="63.5" width="343" height="343"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -61,6 +61,9 @@
                                 <rect key="frame" x="128" y="614" width="119" height="33"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="Играть заново"/>
+                                <connections>
+                                    <action selector="restartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Doa-Zk-Upk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -83,10 +86,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="firstPlayerTurnLabel" destination="1V7-iM-l2S" id="WZD-NG-Cz5"/>
+                        <outlet property="gameboardView" destination="y1S-R6-PEW" id="qJD-UK-qeu"/>
+                        <outlet property="restartButton" destination="9pO-6G-KnK" id="3BF-OF-ZfO"/>
+                        <outlet property="secondPlayerTurnLabel" destination="AJK-PZ-Wbv" id="rjX-nW-cJE"/>
+                        <outlet property="winnerLabel" destination="aX1-pE-aPd" id="6pe-nd-p10"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="96.7016491754123"/>
+            <point key="canvasLocation" x="-655" y="-20"/>
         </scene>
     </scenes>
 </document>
