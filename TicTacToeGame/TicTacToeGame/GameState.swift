@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+public protocol GameState {
+    // выполнено ли состояние
+    var isCompleted: Bool { get }
+    // реализация состояния
+    func begin()
+    // добавляет либо крестик, либо нолик
+    func addMark(at position: GameboardPosition)
+}
