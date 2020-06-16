@@ -24,6 +24,7 @@
 		6667802B249822CB008D0155 /* XView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667802A249822CB008D0155 /* XView.swift */; };
 		6667802D249903D1008D0155 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667802C249903D1008D0155 /* GameState.swift */; };
 		6667802F2499046A008D0155 /* PlayerInputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667802E2499046A008D0155 /* PlayerInputState.swift */; };
+		6667803124991127008D0155 /* GameEndedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667803024991127008D0155 /* GameEndedState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		6667802A249822CB008D0155 /* XView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XView.swift; sourceTree = "<group>"; };
 		6667802C249903D1008D0155 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		6667802E2499046A008D0155 /* PlayerInputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInputState.swift; sourceTree = "<group>"; };
+		6667803024991127008D0155 /* GameEndedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndedState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				6667801724982151008D0155 /* Models */,
 				666780182498215B008D0155 /* Views */,
 				6667800724981811008D0155 /* Main.storyboard */,
+				6667803024991127008D0155 /* GameEndedState.swift */,
 				6667802C249903D1008D0155 /* GameState.swift */,
 				6667802E2499046A008D0155 /* PlayerInputState.swift */,
 				6667800A24981813008D0155 /* Assets.xcassets */,
@@ -202,6 +205,7 @@
 				6667801E249821E8008D0155 /* GameboardSize.swift in Sources */,
 				66678016249819C9008D0155 /* GameViewController.swift in Sources */,
 				666780222498221C008D0155 /* Player.swift in Sources */,
+				6667803124991127008D0155 /* GameEndedState.swift in Sources */,
 				666780242498223C008D0155 /* GameBoardView.swift in Sources */,
 				6667801A2498219C008D0155 /* Referee.swift in Sources */,
 				6667802724982277008D0155 /* MarkView.swift in Sources */,

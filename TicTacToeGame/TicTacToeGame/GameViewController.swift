@@ -23,6 +23,8 @@ class GameViewController: UIViewController {
         }
     }
     
+    private lazy var referee = Referee(gameboard: self.gameboard)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // устанавливаем начальное состояние
@@ -48,6 +50,11 @@ class GameViewController: UIViewController {
     
     // переход к следующему состоянию
     private func goToNextState() {
+        if let winner = self.referee.determineWinner() {
+            self.currentState = GameEndedState(winner: winner, gameViewController: self)
+            return
+        }
+        
         if let playerInputState = currentState as? PlayerInputState {
             self.currentState = PlayerInputState(player: playerInputState.player.next,
                                                  gameViewController: self,
