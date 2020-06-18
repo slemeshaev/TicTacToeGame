@@ -15,4 +15,10 @@ public enum LogAction {
     case gameFinished(winner: Player?)
     
     case restartGame
+    
+}
+
+public func Log(_ action: LogAction) {
+    let command = LogCommand(action: action)
+    LoggerInvoker.shared.addLogCommand(command)
 }

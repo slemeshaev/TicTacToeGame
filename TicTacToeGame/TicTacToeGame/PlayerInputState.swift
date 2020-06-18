@@ -42,6 +42,7 @@ public class PlayerInputState: GameState {
     
     // метод добавления крестика или нолика
     public func addMark(at position: GameboardPosition) {
+        Log(.playerInput(player: self.player, position: position))
         guard let gameboardView = self.gameboardView, gameboardView.canPlaceMarkView(at: position) else { return }
         
         self.gameboard?.setPlayer(self.player, at: position)
