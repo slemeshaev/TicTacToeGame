@@ -25,6 +25,7 @@
 		6667802D249903D1008D0155 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667802C249903D1008D0155 /* GameState.swift */; };
 		6667802F2499046A008D0155 /* PlayerInputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667802E2499046A008D0155 /* PlayerInputState.swift */; };
 		6667803124991127008D0155 /* GameEndedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6667803024991127008D0155 /* GameEndedState.swift */; };
+		66F7DCC5249AD185008087C9 /* Copying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F7DCC4249AD185008087C9 /* Copying.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		6667802C249903D1008D0155 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		6667802E2499046A008D0155 /* PlayerInputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInputState.swift; sourceTree = "<group>"; };
 		6667803024991127008D0155 /* GameEndedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndedState.swift; sourceTree = "<group>"; };
+		66F7DCC4249AD185008087C9 /* Copying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copying.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				6667803024991127008D0155 /* GameEndedState.swift */,
 				6667802C249903D1008D0155 /* GameState.swift */,
 				6667802E2499046A008D0155 /* PlayerInputState.swift */,
+				66F7DCC4249AD185008087C9 /* Copying.swift */,
 				6667800A24981813008D0155 /* Assets.xcassets */,
 				6667800C24981813008D0155 /* LaunchScreen.storyboard */,
 				6667800F24981813008D0155 /* Info.plist */,
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6667802024982201008D0155 /* Gameboard.swift in Sources */,
+				66F7DCC5249AD185008087C9 /* Copying.swift in Sources */,
 				6667802F2499046A008D0155 /* PlayerInputState.swift in Sources */,
 				6667800224981811008D0155 /* AppDelegate.swift in Sources */,
 				6667802D249903D1008D0155 /* GameState.swift in Sources */,

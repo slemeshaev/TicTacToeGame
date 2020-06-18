@@ -42,7 +42,9 @@ class GameViewController: UIViewController {
     
     // метод перехода к первому состоянию
     private func goToFirstState() {
+        let player = Player.first
         self.currentState = PlayerInputState(player: .first,
+                                             markViewPrototype: player.markViewPrototype,
                                              gameViewController: self,
                                              gameboard: gameboard,
                                              gameboardView: gameboardView)
@@ -56,7 +58,9 @@ class GameViewController: UIViewController {
         }
         
         if let playerInputState = currentState as? PlayerInputState {
+            let player = playerInputState.player.next
             self.currentState = PlayerInputState(player: playerInputState.player.next,
+                                                 markViewPrototype: player.markViewPrototype,
                                                  gameViewController: self,
                                                  gameboard: gameboard,
                                                  gameboardView: gameboardView)
