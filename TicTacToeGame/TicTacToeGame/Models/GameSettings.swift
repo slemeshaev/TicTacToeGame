@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+struct GameSettings {
+    
+    let gameMode: GameMode
+    let gameType: GameType
+    
+    init() {
+        self.gameMode = GameMode.oneMove
+        self.gameType = GameType.pvp
+    }
+    
+    init(mode: GameMode, type: GameType) {
+        self.gameMode = mode
+        self.gameType = type
+    }
+}

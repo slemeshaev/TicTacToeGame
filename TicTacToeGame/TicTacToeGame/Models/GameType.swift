@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+public enum GameType {
+    case pvp, pvi
+}

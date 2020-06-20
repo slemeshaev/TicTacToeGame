@@ -8,45 +8,42 @@
 
 import Foundation
 
-public class PlayerInputState: GameState {
+class PlayerInputState: GameState {
     
-    public private(set) var isCompleted: Bool = false
+    var isCompleted: Bool = false
+    let player: Player
+    var inputState: GameViewInput
+    weak var gameboard: Gameboard?
+    weak var gameboardView: GameboardView?
     
-    public let player: Player
-    private(set) weak var gameViewController: GameViewController?
-    private(set) weak var gameboard: Gameboard?
-    private(set) weak var gameboardView: GameboardView?
-    
-    public var markViewPrototype: MarkView
-    
-    init(player: Player, markViewPrototype: MarkView, gameViewController: GameViewController, gameboard: Gameboard, gameboardView: GameboardView) {
+    init(player: Player, inputState: GameViewInput, gameboard: Gameboard, gameboardView: GameboardView) {
         self.player = player
-        self.markViewPrototype = markViewPrototype
-        self.gameViewController = gameViewController
+        self.inputState = inputState
         self.gameboard = gameboard
         self.gameboardView = gameboardView
     }
     
-    // метод реализации состояния
-    public func begin() {
+    func begin() {
         switch self.player {
         case .first:
-            self.gameViewController?.firstPlayerTurnLabel.isHidden = false
-            self.gameViewController?.secondPlayerTurnLabel.isHidden = true
+            self.inputState.firstPlayerTurnLabel(hide: false)
+            self.inputState.secondPlayerTurnLabel(hide: true)
         case .second:
-            self.gameViewController?.firstPlayerTurnLabel.isHidden = true
-            self.gameViewController?.secondPlayerTurnLabel.isHidden = false
+            self.inputState.firstPlayerTurnLabel(hide: true)
+            self.inputState.secondPlayerTurnLabel(hide: false)
         }
-        self.gameViewController?.winnerLabel.isHidden = true
+        self.inputState.winnerLabel(hide: true)
     }
     
-    // метод добавления крестика или нолика
-    public func addMark(at position: GameboardPosition) {
-        Log(.playerInput(player: self.player, position: position))
-        guard let gameboardView = self.gameboardView, gameboardView.canPlaceMarkView(at: position) else { return }
-        
+    func addMark(at position: GameboardPosition) {
+        if self.isCompleted { return }
+        if true == self.gameboard?.containsAnyPlayer(at: position) {
+            self.inputState.incorrectMoveLabel(hide: false)
+            return }
+        self.inputState.incorrectMoveLabel(hide: true)
         self.gameboard?.setPlayer(self.player, at: position)
-        self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)
+        let markView = self.player.markViewPrototype.makeCopy()
+        self.gameboardView?.placeMarkView(markView, at: position)
         self.isCompleted = true
     }
 }

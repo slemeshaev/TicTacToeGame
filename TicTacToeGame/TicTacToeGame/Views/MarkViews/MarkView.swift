@@ -10,6 +10,14 @@ import UIKit
 
 public class MarkView: UIView, Copying {
     
+    // MARK: - Copying
+    
+    required convenience init(_ prototype: MarkView) {
+        self.init()
+        self.lineWidth = prototype.lineWidth
+        self.lineColor = prototype.lineColor
+    }
+    
     // MARK: - Properties
     
     public var lineColor: UIColor = .black
@@ -123,14 +131,4 @@ public class MarkView: UIView, Copying {
     internal func updateShapeLayer() {
         // meant for subclasses to override
     }
-    
-    // MARK: - Copying
-    required init(_ prototype: MarkView) {
-        super.init(frame: prototype.frame)
-        self.lineColor = prototype.lineColor
-        self.lineWidth = prototype.lineWidth
-        self.textColor = prototype.textColor
-    }
-    
 }
-

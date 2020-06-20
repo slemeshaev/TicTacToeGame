@@ -21,9 +21,22 @@ public enum Player: CaseIterable {
     
     var markViewPrototype: MarkView {
         switch self {
-        case .first: return XView()
-        case .second: return OView()
+        case .first:
+            return XView()
+        case .second:
+            return OView()
         }
     }
+    
+    func winnerText() -> String {
+        var text = "Ничья!"
+        switch self {
+        case .first:
+            text = "Победил 1-й игрок"
+        case .second:
+            text = "Победил 2-й игрок"
+        }
         
+        return text
+    }
 }

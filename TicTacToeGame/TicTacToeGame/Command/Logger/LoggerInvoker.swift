@@ -9,32 +9,26 @@
 import UIKit
 
 // MARK: - Invoker
-internal final class LoggerInvoker {
+class LoggerInvoker {
+     
+    static let shared: LoggerInvoker = LoggerInvoker()
     
-    // MARK: Singleton
+    private var commands: [LoggerCommand] = []
+    private let batchSize: Int = 5
     
-    internal static let shared = LoggerInvoker()
-    
-    // MARK: Private properties
-    
-    private let logger = Logger()
-    
-    private let batchSize = 10
-    
-    private var commands: [LogCommand] = []
-    
-    // MARK: Internal
-    
-    internal func addLogCommand(_ command: LogCommand) {
-        self.commands.append(command)
-        self.executeCommandsIfNeeded()
+    func addCommand(_ loggerCommand: LoggerCommand) {
+        self.commands.append(loggerCommand)
+        self.executeIfNeeded()
     }
     
-    // MARK: Private
-    
-    private func executeCommandsIfNeeded() {
-        guard self.commands.count >= batchSize else { return }
-        self.commands.forEach { self.logger.writeMessageToLog($0.logMessage) }
-        self.commands = []
+    private func executeIfNeeded() {
+        if self.commands.count < self.batchSize { return }
+        
+        for command in self.commands {
+            command.execute()
+        }
+        
+        self.commands.removeAll()
     }
+    
 }

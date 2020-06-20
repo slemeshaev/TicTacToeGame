@@ -8,9 +8,11 @@
 
 import Foundation
 
-public protocol GameState {
+protocol GameState {
     // выполнено ли состояние
     var isCompleted: Bool { get }
+    //
+    var inputState: GameViewInput { set get }
     // реализация состояния
     func begin()
     // добавляет либо крестик, либо нолик

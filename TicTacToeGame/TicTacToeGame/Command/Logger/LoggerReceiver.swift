@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class LoggerReceiver {
+    
+    static let shared: LoggerReceiver = LoggerReceiver()
+    
+    func log(mesage: String) {
+        debugPrint(mesage)
+    }
+    
+}

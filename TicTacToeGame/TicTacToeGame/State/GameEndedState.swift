@@ -10,37 +10,28 @@ import Foundation
 
 public class GameEndedState: GameState {
     
-    public let isCompleted = false
+    var isCompleted: Bool = false
+    let winner: Player?
+    var inputState: GameViewInput
     
-    public let winner: Player?
-    private(set) weak var gameViewController: GameViewController?
-    
-    init(winner: Player?, gameViewController: GameViewController) {
+    init(winner: Player?, inputState: GameViewInput) {
         self.winner = winner
-        self.gameViewController = gameViewController
+        self.inputState = inputState
     }
     
-    public func begin() {
-        Log(.gameFinished(winner: self.winner))
-        self.gameViewController?.winnerLabel.isHidden = false
-        if let winner = winner {
-            self.gameViewController?.winnerLabel.text = "Победил " + self.winnerName(from: winner)
-        } else {
-            self.gameViewController?.winnerLabel.text = "Ничья!"
+    func begin() {
+        self.inputState.firstPlayerTurnLabel(hide: true)
+        self.inputState.secondPlayerTurnLabel(hide: true)
+        self.inputState.incorrectMoveLabel(hide: true)
+        self.inputState.winnerLabel(hide: false)
+        
+        var text = "Ничья!"
+        if let winner = self.winner {
+            text = winner.winnerText()
         }
-        self.gameViewController?.firstPlayerTurnLabel.isHidden = true
-        self.gameViewController?.secondPlayerTurnLabel.isHidden = true
+        self.inputState.winnerLabel(text: text)
     }
     
-    public func addMark(at position: GameboardPosition) { }
-    
-    private func winnerName(from winner: Player) -> String {
-        switch winner {
-        case .first:
-            return "1-й игрок"
-        case .second:
-            return "2-й игрок"
-        }
-    }
+    func addMark(at position: GameboardPosition) {}
     
 }

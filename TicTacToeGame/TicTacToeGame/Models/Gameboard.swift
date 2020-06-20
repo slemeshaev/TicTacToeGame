@@ -38,6 +38,35 @@ public final class Gameboard {
         return positions[column][row] == player
     }
     
+    public func containsAnyPlayer(at position: GameboardPosition) -> Bool {
+        let (column, row) = (position.column, position.row)
+        return positions[column][row] != nil
+    }
+    
+    public func areAllPositionsFullfilled() -> Bool {
+        for array in positions {
+            for position in array {
+                if position == nil {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    public func getFreePositions() -> [GameboardPosition] {
+        var freePositions: [GameboardPosition] = []
+        for (column, columnValue) in positions.enumerated() {
+            for (row, rowValue) in columnValue.enumerated() {
+                if rowValue == nil {
+                    let freePosition = GameboardPosition(column: column, row: row)
+                    freePositions.append(freePosition)
+                }
+            }
+        }
+        return freePositions
+    }
+    
     // MARK: - Private
     
     private func initialPositions() -> [[Player?]] {
@@ -49,4 +78,3 @@ public final class Gameboard {
         return positions
     }
 }
-
